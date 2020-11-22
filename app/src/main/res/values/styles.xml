@@ -7,4 +7,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Search Page Styles ************************************************************ -->
+
+    <style name="SearchButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:text">@string/search_button</item>
+        <item name="android:textSize">@dimen/mlarge_text_size</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
+    </style>
+
+
 </resources>

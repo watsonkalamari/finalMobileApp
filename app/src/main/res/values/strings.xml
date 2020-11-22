@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">whatsForDinner</string>
+    <string name="app_name">"What's for Dinner?"</string>
+    <string name="search_button">Search</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui id ornare. Amet porttitor eget dolor morbi.</string>
+
 </resources>
