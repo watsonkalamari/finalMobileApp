@@ -2,5 +2,20 @@
     <string name="app_name">"What's for Dinner?"</string>
     <string name="search_button">Search</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vel facilisis volutpat est velit egestas dui id ornare. Amet porttitor eget dolor morbi.</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="log_in_button">Log In</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_confirmation_hint">Password Confirmation</string>
+    <string name="sign_up_question">What types of recipes are you interested in?</string>
+    <string name="american_chip">American</string>
+    <string name="chinese_chip">Chinese</string>
+    <string name="greek_chip">Greek</string>
+    <string name="italian_chip">Italian</string>
+    <string name="japanese_chip">Japanese</string>
+    <string name="mexican_chip">Mexican</string>
+    <string name="southern_chip">Southern</string>
+    <string name="thai_chip">Thai</string>
 
 </resources>
