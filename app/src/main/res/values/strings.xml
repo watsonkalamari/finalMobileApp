@@ -21,4 +21,8 @@
     <string name="search_title">Search</string>
     <string name="favorites_title">Favorites</string>
     <string name="list_title">Shopping List</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="ingredient_label">Ingredients</string>
+    <string name="ingredient_list">Ingredient List</string>
+    <string name="recipe_direction_list">Recipe Direction List</string>
 </resources>
