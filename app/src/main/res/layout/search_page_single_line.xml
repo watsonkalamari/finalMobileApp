@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/spacing_mlarge"
      >
 
-  <!--  <ImageView
+    <ImageView
         android:id="@+id/search_imageView"
         android:layout_width="@dimen/search_result_pic_size"
         android:layout_height="@dimen/search_result_pic_size"
@@ -26,8 +26,10 @@
         android:id="@+id/search_result_description"
         style="@style/SearchResult_Description"
         app:layout_constraintStart_toStartOf="@+id/search_result_name"
-        app:layout_constraintTop_toBottomOf="@+id/search_result_name" />-->
-    <FrameLayout
+        app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
+
+<!--    What is this?-->
+    <!--<FrameLayout
         android:layout_width="380dp"
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +56,7 @@
             android:layout_marginLeft="30dp"
             app:layout_constraintStart_toStartOf="@+id/search_result_name"
             app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
-
-    </FrameLayout>
+    </FrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
