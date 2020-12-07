@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Recipe {
 
-    private Integer uid;
+    private Integer rid;
     private String name;
     private String ingredient;
     private List<String> ingredientList;
@@ -16,10 +16,10 @@ public class Recipe {
         isSaved=false;
     }
     public Integer getUid(){
-        return uid;
+        return rid;
     }
-    public void setUid(Integer uid){
-        this.uid=uid;
+    public void setUid(Integer rid){
+        this.rid=rid;
     }
     public String getName() {
         return name;

@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsfordinner.model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 

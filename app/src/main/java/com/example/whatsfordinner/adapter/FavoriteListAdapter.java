@@ -8,7 +8,7 @@ import com.example.whatsfordinner.model.Recipe;
 
 import java.util.List;
 
-public class FavoriteListAdapter extends RecyclerView.Adapter{
+public class FavoriteListAdapter {
 
     private List<Recipe> recipes;
     private Context context;

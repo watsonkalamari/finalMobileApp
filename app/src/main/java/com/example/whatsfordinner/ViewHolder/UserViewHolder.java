@@ -7,10 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.whatsfordinner.model.User;
+
 import java.util.List;
 
 import edu.ualr.roomdatabase.db.AppDatabase;
 import edu.ualr.roomdatabase.db.entity.User;
+
 
 public class UserViewModel extends AndroidViewModel {
     // TODO 28. Define a member to store a reference to the database
@@ -66,12 +69,18 @@ public class UserViewModel extends AndroidViewModel {
     // TODO 38. Define a method to edit and update an user in the database
     public void updateUser(String name, String lastName, String street, String state, String city, int postCode, int index) {
         User user = users.getValue().get(index);
-        user.setName(name);
-        user.setLastName(lastName);
-        user.getAddress().setCity(city);
+        user.setfName(name);
+        user.setlName(lastName);
+       /* user.getAddress().setCity(city);
         user.getAddress().setState(state);
         user.getAddress().setStreet(street);
-        user.getAddress().setPostCode(postCode);
+        user.getAddress().setPostCode(postCode);*/
+        user.setStreet(street);
+        user.setCity(city);
+        user.setState(state);
+        user.getZipcode(postCode);
+        /*TODO: KW: connect this to the user class. I think that the zipcode should be
+        *  a string instead of a int because we aren't going to be manipulating the zipcode  */
         new AsyncTask<User, Void, Void>(){
             @Override
             protected Void doInBackground(User... users) {
