@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.ViewHolder;
+/* package com.example.whatsfordinner.ViewHolder;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -71,16 +71,16 @@ public class UserViewModel extends AndroidViewModel {
         User user = users.getValue().get(index);
         user.setfName(name);
         user.setlName(lastName);
-       /* user.getAddress().setCity(city);
+        user.getAddress().setCity(city);
         user.getAddress().setState(state);
         user.getAddress().setStreet(street);
-        user.getAddress().setPostCode(postCode);*/
+        user.getAddress().setPostCode(postCode);
         user.setStreet(street);
         user.setCity(city);
         user.setState(state);
         user.getZipcode(postCode);
-        /*TODO: KW: connect this to the user class. I think that the zipcode should be
-        *  a string instead of a int because we aren't going to be manipulating the zipcode  */
+        TODO: KW: connect this to the user class. I think that the zipcode should be
+        *  a string instead of a int because we aren't going to be manipulating the zipcode
         new AsyncTask<User, Void, Void>(){
             @Override
             protected Void doInBackground(User... users) {
@@ -91,4 +91,5 @@ public class UserViewModel extends AndroidViewModel {
     }
 
 }
+        */
 

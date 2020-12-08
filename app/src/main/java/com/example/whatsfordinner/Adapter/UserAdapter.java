@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.Adapter;
+/*package com.example.whatsfordinner.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +15,14 @@ import com.example.whatsfordinner.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.ualr.roomdatabase.R;
-import edu.ualr.roomdatabase.db.entity.User;
-import edu.ualr.roomdatabase.ui.OnUserSelectedListener;
+//import edu.ualr.roomdatabase.R;
+//import edu.ualr.roomdatabase.db.entity.User;
+//import edu.ualr.roomdatabase.ui.OnUserSelectedListener;
 
 public class UserAdapter extends RecyclerView.Adapter {
 
     private List<User> mItems = new ArrayList<>();
-    private OnUserSelectedListener userSelectionListener;
+    //private OnUserSelectedListener userSelectionListener;
 
     public void updateItems(List<User> users) {
         this.mItems = users;
@@ -101,3 +101,5 @@ public class UserAdapter extends RecyclerView.Adapter {
         }
     }
 }
+
+ */
