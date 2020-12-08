@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/search_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search_placeholder" />
+
+        <TextView
+            android:id="@+id/search_result_name"
+            style="@style/SearchResult_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:id="@+id/search_result_description"
+            style="@style/SearchResult_Description"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintStart_toStartOf="@+id/search_result_name"
+            app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
