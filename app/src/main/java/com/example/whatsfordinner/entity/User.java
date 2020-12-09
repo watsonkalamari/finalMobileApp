@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.model;
+package com.example.whatsfordinner.entity;
 
 public class User {
     private Integer uid;

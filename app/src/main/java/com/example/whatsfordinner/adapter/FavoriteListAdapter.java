@@ -2,9 +2,7 @@ package com.example.whatsfordinner.adapter;
 
 import android.content.Context;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.whatsfordinner.model.Recipe;
+import com.example.whatsfordinner.entity.Recipe;
 
 import java.util.List;
 
