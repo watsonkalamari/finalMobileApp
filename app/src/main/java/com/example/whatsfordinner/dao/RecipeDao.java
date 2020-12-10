@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import com.example.whatsfordinner.crossRef.UserWithRecipeAndIngredients;
 import com.example.whatsfordinner.entity.Recipe;
 import com.example.whatsfordinner.query.IngredientsWithRecipes;
 import com.example.whatsfordinner.query.RecipesWithIngredients;
@@ -28,6 +29,10 @@ public interface RecipeDao {
     @Transaction
     @Query("SELECT * FROM INGREDIENT")
     public List<IngredientsWithRecipes> getIngredientsWithRecipes();
+
+    @Transaction
+    @Query("SELECT * FROM user")
+    public List<UserWithRecipeAndIngredients> getUsersWithRecipesAndIngredients();
     @Insert
     void insertAll(Recipe recipes);
 

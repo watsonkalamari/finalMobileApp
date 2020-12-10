@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.entity;
+package com.example.whatsfordinner.crossRef;
 
 import androidx.room.Entity;
 

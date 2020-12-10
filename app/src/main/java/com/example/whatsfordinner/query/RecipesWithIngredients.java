@@ -6,7 +6,7 @@ import androidx.room.Relation;
 
 import com.example.whatsfordinner.entity.Ingredient;
 import com.example.whatsfordinner.entity.Recipe;
-import com.example.whatsfordinner.entity.RecipeIngredientCrossReference;
+import com.example.whatsfordinner.crossRef.RecipeIngredientCrossReference;
 
 import java.util.List;
 

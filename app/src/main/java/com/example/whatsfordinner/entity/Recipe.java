@@ -16,6 +16,8 @@ public class Recipe {
     @PrimaryKey(autoGenerate = true)
     private Integer rid;
 
+    private int userSavedId;
+
     @ColumnInfo(name="recipe_name")
     private String name;
 
