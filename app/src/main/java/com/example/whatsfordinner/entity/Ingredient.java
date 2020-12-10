@@ -12,7 +12,7 @@ import java.util.List;
 public class Ingredient {
     @PrimaryKey
     @NonNull
-    private Integer id;
+    private Integer ing_id;
    // private List<Ingredient> ingredients=null;
     private String name;
 
@@ -20,15 +20,15 @@ public class Ingredient {
     public int recipeId;
 
     public Ingredient(Integer id, String name){
-        this.id=id;
+        this.ing_id=id;
         this.name=name;
     }
     public Integer getId() {
-        return id;
+        return ing_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.ing_id = id;
     }
     public String getName() {
         return name;

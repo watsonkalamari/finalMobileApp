@@ -1,6 +1,11 @@
 package com.example.whatsfordinner.entity;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "directions")
 public class Direction {
+    @PrimaryKey(autoGenerate = true)
     private Integer did;
     private String description;
 

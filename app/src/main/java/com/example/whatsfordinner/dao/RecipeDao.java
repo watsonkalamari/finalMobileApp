@@ -4,8 +4,11 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import com.example.whatsfordinner.entity.Recipe;
+import com.example.whatsfordinner.query.IngredientsWithRecipes;
+import com.example.whatsfordinner.query.RecipesWithIngredients;
 
 import java.util.List;
 
@@ -18,6 +21,13 @@ public interface RecipeDao {
     List<Recipe>loadAllByIds(int[] rid);
 
 
+    @Transaction
+    @Query("SELECT * FROM RECIPES")
+    public List<RecipesWithIngredients> getRecipesWithIngredients();
+
+    @Transaction
+    @Query("SELECT * FROM INGREDIENT")
+    public List<IngredientsWithRecipes> getIngredientsWithRecipes();
     @Insert
     void insertAll(Recipe recipes);
 
