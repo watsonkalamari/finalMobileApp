@@ -2,11 +2,19 @@ package com.example.whatsfordinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+
+import com.example.whatsfordinner.Fragments.FavoritesFragment;
+import com.example.whatsfordinner.Fragments.HomeFragment;
+import com.example.whatsfordinner.Fragments.SearchFragment;
+import com.example.whatsfordinner.Fragments.ShoppingListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,13 +27,19 @@ public class HomeActivity extends AppCompatActivity {
     private static final int SHOPPINGLIST_FRAGMENT_IDX = 3;
 
     private ViewPager2 viewPager;
+    private FragmentStateAdapter pageAdapter;
     private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity);
+        setContentView(R.layout.activity_main);
+
+        viewPager = findViewById(R.id.pager);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        pageAdapter = new ScreenSlidePagerAdapter(this);
+        viewPager.setAdapter(pageAdapter);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -48,6 +62,44 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                MenuItem selectedItem = bottomNavigationView.getMenu().getItem(position);
+                bottomNavigationView.setSelectedItemId(selectedItem.getItemId());
+            }
+        });
     }
 
+    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+        public ScreenSlidePagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
+        }
+
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            switch (position) {
+                case HOME_FRAGMENT_IDX:
+                    return new HomeFragment();
+                case SEARCH_FRAGMENT_IDX:
+                    return new SearchFragment();
+                case FAVORITES_FRAGMENT_IDX:
+                    return new FavoritesFragment();
+                case SHOPPINGLIST_FRAGMENT_IDX:
+                    return new ShoppingListFragment();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return NUM_PAGES;
+        }
+    }
 }
+
