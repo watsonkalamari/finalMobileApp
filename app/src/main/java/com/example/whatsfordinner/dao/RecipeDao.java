@@ -15,6 +15,9 @@ import java.util.List;
 
 @Dao
 public interface RecipeDao {
+    @Insert
+    void insert(Recipe recipe);
+
     @Query("SELECT * FROM recipes")
     List<Recipe> getAll();
 
