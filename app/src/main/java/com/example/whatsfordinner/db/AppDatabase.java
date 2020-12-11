@@ -6,14 +6,17 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.whatsfordinner.db.dao.RecipeDao;
 import com.example.whatsfordinner.db.dao.UserDao;
+import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-@Database(entities = {User.class, Recipe.class }, version = 1)
+@Database(entities = {User.class, Recipe.class, Ingredient.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     abstract public UserDao getUserDao();
+    abstract public RecipeDao getRecipeDao();
 
     private static AppDatabase instance;
 

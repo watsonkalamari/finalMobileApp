@@ -1,5 +1,6 @@
 package com.example.whatsfordinner.db.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -7,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 
 import com.example.whatsfordinner.db.entity.Recipe;
+import com.example.whatsfordinner.query.IngredientWithQtysAndUnits;
 import com.example.whatsfordinner.query.IngredientsWithRecipes;
 import com.example.whatsfordinner.query.RecipesWithIngredients;
 
@@ -21,8 +23,11 @@ public interface RecipeDao {
     List<Recipe> getAll();
 
     @Query("SELECT * FROM recipes WHERE rid IN (:rid)")
-    List<Recipe>loadAllByIds(int[] rid);
+    List<Recipe> loadAllByIds(int[] rid);
 
+    @Transaction
+    @Query("SELECT * FROM Ingredient")
+    public List<IngredientWithQtysAndUnits> getIngredientsWithQtyAndUnits();
 
     @Transaction
     @Query("SELECT * FROM RECIPES")
@@ -32,12 +37,15 @@ public interface RecipeDao {
     @Query("SELECT * FROM INGREDIENT")
     public List<IngredientsWithRecipes> getIngredientsWithRecipes();
 
-   /* @Transaction
-    @Query("SELECT * FROM user")
-    public List<UserWithRecipeAndIngredients> getUsersWithRecipesAndIngredients();*/
+    /* @Transaction
+     @Query("SELECT * FROM user")
+     public List<UserWithRecipeAndIngredients> getUsersWithRecipesAndIngredients();*/
     @Insert
     void insertAll(Recipe recipes);
 
     @Delete
     void delete(Recipe recipe);
+
+    @Query("SELECT * FROM recipes ORDER BY rid ASC")
+   LiveData<List<Recipe>> getAllRecipes();
 }
