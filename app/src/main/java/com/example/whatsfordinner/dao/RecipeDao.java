@@ -30,9 +30,9 @@ public interface RecipeDao {
     @Query("SELECT * FROM INGREDIENT")
     public List<IngredientsWithRecipes> getIngredientsWithRecipes();
 
-    @Transaction
+   /* @Transaction
     @Query("SELECT * FROM user")
-    public List<UserWithRecipeAndIngredients> getUsersWithRecipesAndIngredients();
+    public List<UserWithRecipeAndIngredients> getUsersWithRecipesAndIngredients();*/
     @Insert
     void insertAll(Recipe recipes);
 
