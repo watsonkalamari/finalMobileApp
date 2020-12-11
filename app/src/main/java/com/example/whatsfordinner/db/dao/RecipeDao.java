@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.dao;
+package com.example.whatsfordinner.db.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,8 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
-import com.example.whatsfordinner.crossRef.UserWithRecipeAndIngredients;
-import com.example.whatsfordinner.entity.Recipe;
+import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.query.IngredientsWithRecipes;
 import com.example.whatsfordinner.query.RecipesWithIngredients;
 

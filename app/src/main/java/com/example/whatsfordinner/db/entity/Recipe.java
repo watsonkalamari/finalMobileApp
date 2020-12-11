@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.entity;
+package com.example.whatsfordinner.db.entity;
 
 import android.graphics.Bitmap;
 

@@ -1,12 +1,10 @@
-package com.example.whatsfordinner.entity;
+package com.example.whatsfordinner.db.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
-
-import java.util.List;
 
 @Entity(foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "rid", childColumns = "recipe_id"))
 public class Ingredient {
