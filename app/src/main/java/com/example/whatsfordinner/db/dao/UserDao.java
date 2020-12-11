@@ -1,0 +1,49 @@
+package com.example.whatsfordinner.db.dao;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+import com.example.whatsfordinner.db.entity.User;
+import com.example.whatsfordinner.db.entity.UserBasicData;
+
+import static androidx.room.OnConflictStrategy.IGNORE;
+import static androidx.room.OnConflictStrategy.REPLACE;
+
+@Dao
+public interface UserDao {
+    @Insert(onConflict = IGNORE)
+    void insertUser(User user);
+
+    @Insert(onConflict = IGNORE)
+    void insertUsers(User... users);
+
+    @Insert(entity = User.class)
+    void updateUserAddress(UserBasicData fullName);
+
+    @Delete
+    void deleteUser(User user);
+
+    @Update(onConflict = REPLACE)
+    void updateUser(User user);
+
+    @Query("select * from users")
+    LiveData<List<User>> loadAllUsers();
+
+    @Query("DELETE FROM users")
+    void deleteAll();
+
+    @Query("select * from users where uid = :id")
+    User loadUserById(int id);
+
+    @Query("select * from users where username = :username")
+    List<User> findUserByUsername(String username);
+
+    @Query("select * from users where email_address = :emailAddress")
+    List<User> findUserByEmail(String emailAddress);
+
+}
