@@ -17,7 +17,7 @@ import com.example.whatsfordinner.Fragments.SearchFragment;
 import com.example.whatsfordinner.Fragments.ShoppingListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int NUM_PAGES = 4;
 
