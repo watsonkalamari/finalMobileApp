@@ -11,25 +11,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/search_imageView"
+            android:id="@+id/favorite_img_imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_search_placeholder" />
 
         <TextView
-            android:id="@+id/search_result_name"
+            android:id="@+id/favorite_title_tv"
             style="@style/SearchResult_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="15dp" />
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/search_result_description"
             style="@style/SearchResult_Description"
             android:layout_gravity="bottom"
             android:layout_marginLeft="30dp"
             app:layout_constraintStart_toStartOf="@+id/search_result_name"
-            app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
+            app:layout_constraintTop_toBottomOf="@+id/search_result_name" />-->
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
