@@ -46,4 +46,7 @@ public interface UserDao {
     @Query("select * from users where email_address = :emailAddress")
     List<User> findUserByEmail(String emailAddress);
 
+    @Query ("select * from users where username = :username and password = :password")
+    List<User> userLogin(String username, String password);
+
 }

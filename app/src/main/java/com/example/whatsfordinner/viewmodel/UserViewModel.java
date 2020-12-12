@@ -14,7 +14,7 @@ import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.entity.User;
 
 
-public class UserViewModel extends AndroidViewModel
+public class UserViewModel extends AndroidViewModel {
     private AppDatabase database;
     private LiveData<List<User>> users;
 
@@ -27,7 +27,6 @@ public class UserViewModel extends AndroidViewModel
         users = database.getUserDao().loadAllUsers();
     }
 
-    @SuppressLint("StaticFieldLeak")
     public void populateAppDatabase(final List<User> dataset) {
         new AsyncTask<List<User>, Void, Void>(){
             @Override
@@ -43,7 +42,6 @@ public class UserViewModel extends AndroidViewModel
         return this.users;
     }
 
-    @SuppressLint("StaticFieldLeak")
     public void deleteUser(User user) {
         new AsyncTask<User, Void, Void>(){
             @Override
@@ -54,12 +52,11 @@ public class UserViewModel extends AndroidViewModel
         }.execute(user);
     }
 
-    @SuppressLint("StaticFieldLeak")
     public void updateUser(String emailAddress, String username, String password, int index) {
         User user = users.getValue().get(index);
         user.setEmailAddress(emailAddress);
-        user.getUsername().setUsername(username);
-        user.getPassword().setPassword(password);
+        user.setUsername(username);
+        user.setPassword(password);
         new AsyncTask<User, Void, Void>(){
             @Override
             protected Void doInBackground(User... users) {
