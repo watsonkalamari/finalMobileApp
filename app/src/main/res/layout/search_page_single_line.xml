@@ -28,8 +28,5 @@
         app:layout_constraintStart_toStartOf="@+id/search_result_name"
         app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
 
-<!--    What is this?-->
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

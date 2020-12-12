@@ -1,4 +1,4 @@
-/*package com.example.whatsfordinner.Adapter;
+package com.example.whatsfordinner.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,4 +102,3 @@ public class UserAdapter extends RecyclerView.Adapter {
     }
 }
 
- */
