@@ -24,6 +24,7 @@ public class Recipe {
 
     @ColumnInfo(name = "ingredient")
 
+    /*
     @Embedded
     private Ingredient ingredient;
     private List<String> ingredientList=null;
@@ -66,6 +67,8 @@ public class Recipe {
     public void setDescription(String description){
         this.description = description;
     }
+
+  /*
     public Ingredient getIngredient() {
 
         return ingredient;

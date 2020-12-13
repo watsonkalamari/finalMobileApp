@@ -1,5 +1,6 @@
 package com.example.whatsfordinner.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,16 @@ import com.example.whatsfordinner.db.entity.Ingredient;
 public class ShoppingListAdapter extends RecyclerView.Adapter {
 
     private List<Ingredient> mItems = new ArrayList<>();
+    private final LayoutInflater inflater;
+
 
     public void updateItems(List<Ingredient> ingredients) {
         this.mItems = ingredients;
         notifyDataSetChanged();
+    }
+
+    public ShoppingListAdapter(Context context){
+        inflater = LayoutInflater.from(context);
     }
 
     @NonNull

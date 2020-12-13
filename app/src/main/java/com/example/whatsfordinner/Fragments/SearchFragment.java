@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsfordinner.Adapter.SearchListAdapter;
 import com.example.whatsfordinner.R;
 
 public class SearchFragment extends Fragment {
@@ -30,6 +31,11 @@ public class SearchFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        RecyclerView recyclerView = view.findViewById(R.id.search_page_recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
 
+        final SearchListAdapter adapter = new SearchListAdapter(getActivity());
+        recyclerView.setAdapter(adapter);
     }
 }
