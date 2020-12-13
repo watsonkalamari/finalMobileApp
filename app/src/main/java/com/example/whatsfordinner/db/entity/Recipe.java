@@ -21,15 +21,11 @@ public class Recipe {
     @ColumnInfo(name="recipe_name")
     private String name;
 
-<<<<<<< Updated upstream
-  /*  @ColumnInfo(name = "ingredient")
-=======
     @ColumnInfo(name="recipe_desc")
     private String description;
 
-    @ColumnInfo(name = "ingredient")
->>>>>>> Stashed changes
 
+    /*
     @Embedded
     private Ingredient ingredient;
     private List<String> ingredientList=null;
@@ -57,15 +53,15 @@ public class Recipe {
     public void setName(String name) {
         this.name = name;
     }
-<<<<<<< Updated upstream
-  /*  public Ingredient getIngredient() {
-=======
+
     public String getDescription(){return description;}
     public void setDescription(String description){
         this.description = description;
     }
+
+  /*
     public Ingredient getIngredient() {
->>>>>>> Stashed changes
+
         return ingredient;
     }
 
