@@ -66,4 +66,14 @@ public class UserViewModel extends AndroidViewModel {
         }.execute(user);
     }
 
+    public void loginUser(String username, String password){
+        new AsyncTask<String, Void, Void>(){
+            @Override
+            protected Void doInBackground(String... data) {
+                database.getUserDao().userLogin(data[0], data[1]);
+                return null;
+            }
+        }.execute(username, password);
+    }
+
 }

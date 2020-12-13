@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.adapter;
+package com.example.whatsfordinner.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
