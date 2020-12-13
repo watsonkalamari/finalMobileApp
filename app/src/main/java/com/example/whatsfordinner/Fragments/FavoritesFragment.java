@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsfordinner.R;
-import com.example.whatsfordinner.adapter.FavoriteListAdapter;
+import com.example.whatsfordinner.Adapter.FavoriteListAdapter;
 
 public class FavoritesFragment extends Fragment {
 

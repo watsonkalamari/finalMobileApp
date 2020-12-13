@@ -8,6 +8,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
+import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.UserBasicData;
 
@@ -48,5 +50,8 @@ public interface UserDao {
 
     @Query ("select * from users where username = :username and password = :password")
     List<User> userLogin(String username, String password);
+
+    @Query("SELECT * FROM users ORDER BY uid ASC")
+    LiveData<List<User>> getAllUsers();
 
 }

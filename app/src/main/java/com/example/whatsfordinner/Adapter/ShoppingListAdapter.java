@@ -36,7 +36,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Ingredient ingredient = mItems.get(position);
         IngredientViewHolder vh = (IngredientViewHolder) holder;
-        vh.ingredient.setText(ingredient.getName());
+        vh.ingredient.setText(ingredient.getIngredient_name());
     }
 
     @Override

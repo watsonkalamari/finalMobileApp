@@ -38,7 +38,7 @@ public class SearchListAdapter extends RecyclerView.Adapter {
         Recipe recipe = mItems.get(position);
         RecipeViewHolder vh = (RecipeViewHolder) holder;
         vh.recipeTitle.setText(recipe.getName());
-        vh.recipeDescription.setText(recipe.getDescription());
+        vh.recipeDescription.setText(recipe.getRecipe_description());
     }
 
     @Override

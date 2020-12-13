@@ -15,20 +15,14 @@ public class Recipe {
 
     @PrimaryKey(autoGenerate = true)
     private Integer rid;
-
-    private int userSavedId;
-
     @ColumnInfo(name="recipe_name")
     private String name;
-
-<<<<<<< Updated upstream
+    private String recipe_description;
   /*  @ColumnInfo(name = "ingredient")
-=======
     @ColumnInfo(name="recipe_desc")
     private String description;
 
     @ColumnInfo(name = "ingredient")
->>>>>>> Stashed changes
 
     @Embedded
     private Ingredient ingredient;
@@ -57,15 +51,23 @@ public class Recipe {
     public void setName(String name) {
         this.name = name;
     }
-<<<<<<< Updated upstream
+
+    public String getRecipe_description() {
+        return recipe_description;
+    }
+
+    public void setRecipe_description(String recipe_description) {
+        this.recipe_description = recipe_description;
+    }
+
   /*  public Ingredient getIngredient() {
-=======
+
     public String getDescription(){return description;}
     public void setDescription(String description){
         this.description = description;
     }
     public Ingredient getIngredient() {
->>>>>>> Stashed changes
+
         return ingredient;
     }
 
