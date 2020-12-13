@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(pageAdapter);
 
         //TODO::create an instance of the database that the app can use in each of the fragments. 
-        AppDatabase.getInstance(this);
+        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

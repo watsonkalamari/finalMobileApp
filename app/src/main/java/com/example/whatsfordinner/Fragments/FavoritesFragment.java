@@ -31,5 +31,7 @@ public class FavoritesFragment extends Fragment {
 
         final FavoriteListAdapter adapter = new FavoriteListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
+
+
     }
 }
