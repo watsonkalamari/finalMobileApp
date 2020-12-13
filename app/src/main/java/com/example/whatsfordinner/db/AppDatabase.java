@@ -12,7 +12,7 @@ import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-@Database(entities = {User.class, Recipe.class, Ingredient.class}, version = 1)
+@Database(version = 2, entities = {User.class, Recipe.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     abstract public UserDao getUserDao();

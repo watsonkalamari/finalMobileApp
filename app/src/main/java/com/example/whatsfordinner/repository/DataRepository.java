@@ -20,8 +20,8 @@ public class DataRepository {
     private LiveData<List<User>> allUsers;
     private LiveData<List<Recipe>> allRecipes;
 
-    DataRepository(Application application) {
-        AppDatabase db = AppDatabase.getInstance(application);
+    public DataRepository(Application application) {
+       AppDatabase db = AppDatabase.getInstance(application);
         userDao = db.getUserDao();
         recipeDao = db.getRecipeDao();
 
@@ -29,11 +29,11 @@ public class DataRepository {
         //TODO::add the oen for userDao
     }
 
-    LiveData<List<Recipe>> getAllRecipes() {
+    public LiveData<List<Recipe>> getAllRecipes() {
         return allRecipes;
     }
 
-    LiveData<List<User>> getAllUsers() {
+    public LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
 
@@ -41,7 +41,7 @@ public class DataRepository {
         new insertAsyncTask(recipeDao).execute(recipe);
     }
 
-    private static class insertAsyncTask extends AsyncTask<Recipe, Void, Void> {
+    private static class insertAsyncTask extends AsyncTask<Recipe, void,void> {
         private RecipeDao asynchTaskDao;
 
         insertAsyncTask(RecipeDao dao) {
@@ -49,9 +49,10 @@ public class DataRepository {
         }
 
         @Override
-        protected void doInBackground(final Recipe params) {
-            asynchTaskDao.insert(/*TODO:: Add recipe params*/);
-            return null;
+        protected void doInBackground( Recipe recipe) {
+            asynchTaskDao.insert(recipe);
+
+            //TODO::clear up the errors
         }
     }
 }

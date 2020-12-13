@@ -15,6 +15,7 @@ import com.example.whatsfordinner.Fragments.FavoritesFragment;
 import com.example.whatsfordinner.Fragments.HomeFragment;
 import com.example.whatsfordinner.Fragments.SearchFragment;
 import com.example.whatsfordinner.Fragments.ShoppingListFragment;
+import com.example.whatsfordinner.db.AppDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         pageAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pageAdapter);
 
+        //TODO::create an instance of the database that the app can use in each of the fragments. 
+        AppDatabase.getInstance(this);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
