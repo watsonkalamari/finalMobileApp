@@ -10,6 +10,7 @@ import androidx.room.Transaction;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.query.IngredientWithQtysAndUnits;
 import com.example.whatsfordinner.query.IngredientsWithRecipes;
+import com.example.whatsfordinner.query.RecipeWithMeasuredIngredients;
 import com.example.whatsfordinner.query.RecipesWithIngredients;
 
 import java.util.List;
@@ -36,6 +37,13 @@ public interface RecipeDao {
     @Transaction
     @Query("SELECT * FROM INGREDIENT")
     public List<IngredientsWithRecipes> getIngredientsWithRecipes();
+
+    @Transaction
+    @Query("SELECT * FROM RECIPES")
+    public List<RecipeWithMeasuredIngredients> getRecipesWithMeasuredIngredients();
+
+    @Transaction
+    @Query("SELECT * FROM RECIPES")
 
     /* @Transaction
      @Query("SELECT * FROM user")

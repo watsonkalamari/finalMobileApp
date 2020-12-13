@@ -21,7 +21,7 @@ public class Recipe {
     @ColumnInfo(name="recipe_name")
     private String name;
 
-    @ColumnInfo(name = "ingredient")
+  /*  @ColumnInfo(name = "ingredient")
 
     @Embedded
     private Ingredient ingredient;
@@ -29,13 +29,13 @@ public class Recipe {
 
     private String direction;
     private List<String> instructionList;
-
+*/
     @Ignore
     Bitmap picture;
-    private boolean isSaved;
+    /*private boolean isSaved;*/
 
     public Recipe(){
-        isSaved=false;
+       /* isSaved=false;*/
     }
     public Integer getRid(){
         return rid;
@@ -50,7 +50,7 @@ public class Recipe {
     public void setName(String name) {
         this.name = name;
     }
-    public Ingredient getIngredient() {
+  /*  public Ingredient getIngredient() {
         return ingredient;
     }
 
@@ -63,9 +63,9 @@ public class Recipe {
 
     public void setDirection(String direction) {
         this.direction = direction;
-    }
+    }*/
 
-    public boolean isSaved() {
+   /* public boolean isSaved() {
         return isSaved;
     }
 
@@ -73,5 +73,5 @@ public class Recipe {
         isSaved = saved;
     }
 
-
+*/
 }

@@ -6,22 +6,22 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "measurement_units")
 public class MeasurementUnits {
     @PrimaryKey
-    private int mUnitId;
-    private String measurement_unit;
+    private int measurement_unit_id;
+    private String unit_description;
 
-    public int getmUnitId() {
-        return mUnitId;
+    public int getMeasurement_unit_id() {
+        return measurement_unit_id;
     }
 
-    public void setmUnitId(int mUnitId) {
-        this.mUnitId = mUnitId;
+    public void setMeasurement_unit_id(int measurement_unit_id) {
+        this.measurement_unit_id = measurement_unit_id;
     }
 
     public String getMeasurement() {
-        return measurement_unit;
+        return unit_description;
     }
 
     public void setMeasurement(String measurement) {
-        this.measurement_unit = measurement;
+        this.unit_description = measurement;
     }
 }

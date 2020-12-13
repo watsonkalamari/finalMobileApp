@@ -10,30 +10,30 @@ import androidx.room.PrimaryKey;
 public class Ingredient {
     @PrimaryKey
     @NonNull
-    private Integer ing_id;
+    private Integer ingredient_id;
    // private List<Ingredient> ingredients=null;
-    private String name;
+    private String ingredient_name;
 
     @ColumnInfo(name="recipe_id")
     public int recipeId;
 
-    public Ingredient(Integer id, String name){
-        this.ing_id=id;
-        this.name=name;
+    public Ingredient(Integer id, String ingredient_name){
+        this.ingredient_id =id;
+        this.ingredient_name = ingredient_name;
     }
     public Integer getId() {
-        return ing_id;
+        return ingredient_id;
     }
 
     public void setId(Integer id) {
-        this.ing_id = id;
+        this.ingredient_id = id;
     }
-    public String getName() {
-        return name;
+    public String getIngredient_name() {
+        return ingredient_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIngredient_name(String ingredient_name) {
+        this.ingredient_name = ingredient_name;
     }
 
 
