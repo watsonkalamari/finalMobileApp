@@ -14,7 +14,7 @@ import java.util.List;
 public class Recipe {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer rid;
+    private Integer recipe_id;
     @ColumnInfo(name="recipe_name")
     private String name;
     private String recipe_description;
@@ -39,12 +39,7 @@ public class Recipe {
     public Recipe(){
        /* isSaved=false;*/
     }
-    public Integer getRid(){
-        return rid;
-    }
-    public void setRid(Integer rid){
-        this.rid=rid;
-    }
+
     public String getName() {
         return name;
     }
@@ -59,6 +54,14 @@ public class Recipe {
 
     public void setRecipe_description(String recipe_description) {
         this.recipe_description = recipe_description;
+    }
+
+    public Integer getRecipe_id() {
+        return recipe_id;
+    }
+
+    public void setRecipe_id(Integer recipe_id) {
+        this.recipe_id = recipe_id;
     }
 
   /*  public Ingredient getIngredient() {

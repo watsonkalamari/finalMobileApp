@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "measured_ingredients", foreignKeys ={ @ForeignKey(entity = Recipe.class, parentColumns = "recipe_id", childColumns ="recipe_id" ),
         @ForeignKey(entity = Ingredient.class, parentColumns = "ingredient_id", childColumns = "ingredient_id"),
-        @ForeignKey(entity = MeasurementUnits.class, parentColumns = "measurement_unit_id", childColumns = "measurment_unit_id")})
+        @ForeignKey(entity = MeasurementUnits.class, parentColumns = "measurement_unit_id", childColumns = "measurement_unit_id")})
 public class MeasurementQty {
     //TODO::change the name
 

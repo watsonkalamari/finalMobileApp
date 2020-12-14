@@ -1,5 +1,6 @@
 package com.example.whatsfordinner.db.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -9,6 +10,7 @@ public class Direction {
     @PrimaryKey
     private Integer direction_id;
     private Integer recipe_id;
+    @ColumnInfo(name = "Step_number")
     private Integer step_number;
     private String direction_description;
 
