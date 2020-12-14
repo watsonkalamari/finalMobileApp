@@ -24,12 +24,19 @@ public class DatabaseViewModel extends AndroidViewModel {
         //TODO::add the one for the users
     }
 
-    public LiveData<List<Recipe>> getAllRecipes() {
-        return allRecipes;
-    }
+
+    public LiveData<List<User>> getAllUsers(){return allUsers;}
     public void insert(Recipe recipe){
         repository.insert(recipe);
     }
+    public void update(Recipe recipe){repository.update(recipe);}
+    public void delete(Recipe recipe){repository.delete(recipe);}
+    public void deleteAllRecipes(){repository.deleteAllRecipes();}
+
+    public LiveData<List<Recipe>> getAllRecipes() {
+        return allRecipes;
+    }
+
     //TODO:: add the getAllUsers()
     //TODO:: add the insert for the users.
 }

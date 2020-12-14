@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.query.IngredientWithQtysAndUnits;
@@ -20,8 +21,19 @@ public interface RecipeDao {
     @Insert
     void insert(Recipe recipe);
 
-    @Query("SELECT * FROM recipes")
-    List<Recipe> getAll();
+    @Update
+    void update(Recipe recipe);
+
+    @Delete
+    void delete(Recipe recipe);
+
+    @Query("DELETE FROM RECIPES")
+    void deleteAllNotes();
+
+    @Query("SELECT * FROM recipes ORDER BY rid ASC")
+    LiveData<List<Recipe>> getAllRecipes();
+
+
 
     @Query("SELECT * FROM recipes WHERE rid IN (:rid)")
     List<Recipe> loadAllByIds(int[] rid);
@@ -51,9 +63,8 @@ public interface RecipeDao {
     @Insert
     void insertAll(Recipe recipes);
 
-    @Delete
-    void delete(Recipe recipe);
+    @Query("DELETE FROM recipes")
+    void deleteAll();
 
-    @Query("SELECT * FROM recipes ORDER BY rid ASC")
-   LiveData<List<Recipe>> getAllRecipes();
+
 }

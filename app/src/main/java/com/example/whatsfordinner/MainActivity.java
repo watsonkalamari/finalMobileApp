@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.example.whatsfordinner.Fragments.FavoritesFragment;
@@ -16,7 +19,11 @@ import com.example.whatsfordinner.Fragments.HomeFragment;
 import com.example.whatsfordinner.Fragments.SearchFragment;
 import com.example.whatsfordinner.Fragments.ShoppingListFragment;
 import com.example.whatsfordinner.db.AppDatabase;
+import com.example.whatsfordinner.db.entity.Recipe;
+import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentStateAdapter pageAdapter;
     private BottomNavigationView bottomNavigationView;
 
+    private DatabaseViewModel databaseViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +50,15 @@ public class MainActivity extends AppCompatActivity {
         pageAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pageAdapter);
 
-        //TODO::create an instance of the database that the app can use in each of the fragments. 
-       // AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+        databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
+        databaseViewModel.getAllRecipes().observe(this, new Observer<List<Recipe>>() {
+            @Override
+            public void onChanged(List<Recipe> recipes) {
+                //TODO::update RecyclerView
+                Toast.makeText(MainActivity.this, "onchanged", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
