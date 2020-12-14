@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,12 +15,13 @@ import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapter.FavoriteListViewHolder> {
 
     private final LayoutInflater inflater;
-    private List<Recipe> recipes;
+    private List<Recipe> recipes = new ArrayList<>();
 
     public FavoriteListAdapter(Context context){
         inflater = LayoutInflater.from(context);
@@ -28,7 +30,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
 
     @Override
     public FavoriteListViewHolder onCreateViewHolder(ViewGroup parent, int viewType ){
-        View itemView = inflater.inflate(R.layout.favorite_recipes_display_single_line,parent,false);
+        View itemView = inflater.from(parent.getContext()).inflate(R.layout.favorite_recipes_display_single_line,parent,false);
         return new FavoriteListViewHolder(itemView);
     }
 
@@ -43,7 +45,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
         }
     }
 
-    void setRecipes(List<Recipe> Recipe){
+    public void setRecipes(List<Recipe> Recipe){
         recipes = Recipe;
         notifyDataSetChanged();
     }
@@ -57,12 +59,13 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
 
 
    public class FavoriteListViewHolder extends RecyclerView.ViewHolder{
-        public Bitmap bitmap;
+        public ImageView bitmap;
         public TextView recipetitle;
 
         private FavoriteListViewHolder (View v){
             super(v);
             recipetitle = v.findViewById(R.id.favorite_title_tv);
+            bitmap = v.findViewById(R.id.favorite_img_imageView);
         }
    }
 

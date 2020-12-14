@@ -1,6 +1,7 @@
 package com.example.whatsfordinner.db.entity;
 
 //TODO::KW I think that this class should be removed since we already have a user class.
+/*
 public class UserBasicData {
     private int uid;
     private String emailAddress;
@@ -39,3 +40,4 @@ public class UserBasicData {
         this.password = password;
     }
 }
+*/

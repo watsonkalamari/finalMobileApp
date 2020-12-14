@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.query;
+/*package com.example.whatsfordinner.query;
 
 import androidx.room.Embedded;
 import androidx.room.Relation;
@@ -10,8 +10,8 @@ public class RecipeWithMeasuredIngredients {
     @Embedded
     public Recipe recipe;
     @Relation(
-            parentColumn = "recipe_id",
+            parentColumn = "rid",
             entityColumn="recipe_id"
     )
     public MeasurementQty measurementQty;
-}
+}*/

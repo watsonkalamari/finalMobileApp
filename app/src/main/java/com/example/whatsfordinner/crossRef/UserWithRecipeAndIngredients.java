@@ -1,4 +1,4 @@
-package com.example.whatsfordinner.crossRef;
+/*package com.example.whatsfordinner.crossRef;
 
 import androidx.room.Embedded;
 import androidx.room.Relation;
@@ -17,4 +17,4 @@ public class UserWithRecipeAndIngredients {
             entityColumn = "userSavedId"
     )
     public List<RecipesWithIngredients> recipes;
-}
+}*/

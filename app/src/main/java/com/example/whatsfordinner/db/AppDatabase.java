@@ -12,11 +12,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.whatsfordinner.db.dao.RecipeDao;
 import com.example.whatsfordinner.db.dao.UserDao;
+import com.example.whatsfordinner.db.entity.Direction;
 import com.example.whatsfordinner.db.entity.Ingredient;
+import com.example.whatsfordinner.db.entity.MeasurementQty;
+import com.example.whatsfordinner.db.entity.MeasurementUnits;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-@Database(version = 1, entities = {User.class, Recipe.class})
+@Database(version = 14, entities = {User.class, Recipe.class, Direction.class,Ingredient.class, MeasurementQty.class, MeasurementUnits.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -28,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
-                instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "appDatabase").createFromAsset("database/appData.db").build();
+                instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "appDatabase").createFromAsset("database/appData2.db").build();
         }
         return instance;
     }

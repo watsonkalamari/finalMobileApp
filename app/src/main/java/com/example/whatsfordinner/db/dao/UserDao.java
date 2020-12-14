@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.db.entity.User;
-import com.example.whatsfordinner.db.entity.UserBasicData;
 
 import static androidx.room.OnConflictStrategy.IGNORE;
 import static androidx.room.OnConflictStrategy.REPLACE;
@@ -25,7 +24,7 @@ public interface UserDao {
     void insertUsers(User... users);
 
     @Insert(entity = User.class)
-    void updateUserAddress(UserBasicData fullName);
+    void updateUserAddress(User fullName);
 
     @Delete
     void deleteUser(User user);

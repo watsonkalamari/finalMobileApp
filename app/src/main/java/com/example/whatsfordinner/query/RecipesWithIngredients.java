@@ -1,3 +1,4 @@
+/*
 package com.example.whatsfordinner.query;
 
 import androidx.room.Embedded;
@@ -14,8 +15,8 @@ public class RecipesWithIngredients {
     @Embedded public Recipe recipe;
     @Relation(
             parentColumn = "rid",
-            entityColumn = "ing_id",
+            entityColumn = "ingredient_id",
             associateBy = @Junction(RecipeIngredientCrossReference.class)
     )
     public List<Ingredient> ingredients;
-}
+}*/

@@ -17,11 +17,12 @@ public class MeasurementUnits {
         this.measurement_unit_id = measurement_unit_id;
     }
 
-    public String getMeasurement() {
+
+    public String getUnit_description() {
         return unit_description;
     }
 
-    public void setMeasurement(String measurement) {
-        this.unit_description = measurement;
+    public void setUnit_description(String unit_description) {
+        this.unit_description = unit_description;
     }
 }
