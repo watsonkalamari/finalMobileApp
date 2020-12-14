@@ -4,12 +4,16 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "measured_ingredients", foreignKeys ={ @ForeignKey(entity = Recipe.class, parentColumns = "recipe_id", childColumns ="recipe_id" ),
+import org.jetbrains.annotations.NotNull;
+
+@Entity(tableName = "measured_ingredients", foreignKeys ={
+        @ForeignKey(entity = Recipe.class, parentColumns = "recipe_id", childColumns ="recipe_id" ),
         @ForeignKey(entity = Ingredient.class, parentColumns = "ingredient_id", childColumns = "ingredient_id"),
         @ForeignKey(entity = MeasurementUnits.class, parentColumns = "measurement_unit_id", childColumns = "measurement_unit_id")})
 public class MeasurementQty {
     //TODO::change the name
 
+    @NotNull
     @PrimaryKey
     private int measured_ingredients_id;
     private int recipe_id;
@@ -22,7 +26,7 @@ public class MeasurementQty {
         return measured_ingredients_id;
     }
 
-    public void setMeasured_ingredients_id(int measured_ingredients_id) {
+    public void setMeasured_ingredients_id(@NotNull int measured_ingredients_id) {
         this.measured_ingredients_id = measured_ingredients_id;
     }
 
@@ -30,7 +34,7 @@ public class MeasurementQty {
         return recipe_id;
     }
 
-    public void setRecipe_id(int recipe_id) {
+    public void setRecipe_id(@NotNull int recipe_id) {
         this.recipe_id = recipe_id;
     }
 
@@ -54,7 +58,7 @@ public class MeasurementQty {
         return ingredient_id;
     }
 
-    public void setIngredient_id(int ingredient_id) {
+    public void setIngredient_id(@NotNull int ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 }

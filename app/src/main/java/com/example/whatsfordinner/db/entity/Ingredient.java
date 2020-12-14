@@ -6,14 +6,14 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Recipe.class, parentColumns = "recipe_id", childColumns = "recipe_id"))
+@Entity(tableName = "ingredient")
 public class Ingredient {
     @PrimaryKey
     @NonNull
     private Integer ingredient_id;
    // private List<Ingredient> ingredients=null;
     private String ingredient_name;
-    public int recipe_id;
+  /*  public int recipe_id;*/
 
    /* public Ingredient(Integer id, Integer recipe_id, String ingredient_name){
         this.ingredient_id =id;
