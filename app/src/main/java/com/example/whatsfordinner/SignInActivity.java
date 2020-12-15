@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +24,11 @@ public class SignInActivity extends Fragment {
     private TextInputEditText passwordInput;
     private MaterialButton loginBtn;
 
+    private Activity activity = getActivity();
     private UserViewModel mViewModel;
 
-    private SignInActivity(){}
+    private SignInActivity(){
+    }
 
     public static SignInActivity instance(int index) {
         SignInActivity instance = new SignInActivity();
@@ -65,6 +68,6 @@ public class SignInActivity extends Fragment {
     public void onClick(View view){
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
-        mViewModel.loginUser(username, password);
+        mViewModel.loginUser(activity, username, password);
     }
 }

@@ -1,7 +1,8 @@
 package com.example.whatsfordinner.viewmodel;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
@@ -10,8 +11,11 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import com.example.whatsfordinner.MainActivity;
+import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.entity.User;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class UserViewModel extends AndroidViewModel {
@@ -66,12 +70,20 @@ public class UserViewModel extends AndroidViewModel {
         }.execute(user);
     }
 
-    public void loginUser(String username, String password){
-        new AsyncTask<String, Void, Void>(){
+    public void loginUser(Activity activity, String username, String password){
+        new AsyncTask<String, Void, List<User>>(){
             @Override
-            protected Void doInBackground(String... data) {
-                database.getUserDao().userLogin(data[0], data[1]);
-                return null;
+            protected List<User> doInBackground(String... data) {
+                List<User> result = database.getUserDao().userLogin(data[0], data[1]);
+                return result;
+            }
+            @Override
+            protected void onPostExecute(List<User> result) {
+                if (result == null || result.isEmpty()) {
+                    //Snackbar.make(findViewById(android.R.id.content), "Wrong password. Try again.", Snackbar.LENGTH_LONG).show();
+                } else {
+                    activity.startActivity(new Intent(activity, MainActivity.class));
+                }
             }
         }.execute(username, password);
     }
