@@ -1,12 +1,16 @@
 package com.example.whatsfordinner.db.entity;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.example.whatsfordinner.R;
 
 import java.util.List;
 
@@ -32,8 +36,7 @@ public class Recipe {
     private String direction;
     private List<String> instructionList;
 */
-    @Ignore
-    Bitmap picture;
+    private String recipe_image;
     /*private boolean isSaved;*/
 
     public Recipe(){
@@ -63,6 +66,17 @@ public class Recipe {
     public void setRecipe_id(Integer recipe_id) {
         this.recipe_id = recipe_id;
     }
+
+    public String getRecipe_image() {
+        return recipe_image;
+    }
+
+    public void setRecipe_image(String recipe_image) {
+        this.recipe_image = recipe_image;
+    }
+
+
+
 
   /*  public Ingredient getIngredient() {
 

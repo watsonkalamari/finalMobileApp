@@ -1,7 +1,9 @@
 package com.example.whatsfordinner.Adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,8 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
         if(recipes!=null) {
             Recipe current = recipes.get(position);
             holder.recipetitle.setText(current.getName());
+            //Drawable icon = getResources().getIdentifier(current.getRecipe_image(),"drawable",com.example.whatsfordinner);
+           holder.bitmap.setImageResource(R.drawable.greek_salad);
         }else{
             holder.recipetitle.setText("NO TITLE");
 
@@ -68,7 +72,5 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
             bitmap = v.findViewById(R.id.favorite_img_imageView);
         }
    }
-
-
 
 }

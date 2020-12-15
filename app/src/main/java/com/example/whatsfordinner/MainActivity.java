@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private FragmentStateAdapter pageAdapter;
     private BottomNavigationView bottomNavigationView;
 
-    private DatabaseViewModel databaseViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +48,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         pageAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pageAdapter);
-
-
-        databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
-        databaseViewModel.getAllRecipes().observe(this, new Observer<List<Recipe>>() {
-            @Override
-            public void onChanged(List<Recipe> recipes) {
-                //TODO::update RecyclerView
-                Toast.makeText(MainActivity.this, "onchanged", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
