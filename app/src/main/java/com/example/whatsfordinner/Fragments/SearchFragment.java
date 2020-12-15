@@ -14,16 +14,24 @@ import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsfordinner.Adapter.HomeListAdapter;
 import com.example.whatsfordinner.Adapter.SearchListAdapter;
 import com.example.whatsfordinner.R;
+import com.example.whatsfordinner.db.entity.Recipe;
+import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
+
+import java.util.List;
 
 public class SearchFragment extends Fragment {
 
+    private DatabaseViewModel databaseViewModel;
 
-    @Override
+    /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -32,7 +40,7 @@ public class SearchFragment extends Fragment {
             String query = intent.getStringExtra(SearchManager.QUERY);
             //doMySearch(query);
         }
-    }
+    }*/
 
     @Nullable
     @Override
@@ -41,15 +49,24 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         RecyclerView recyclerView = view.findViewById(R.id.search_page_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
         final SearchListAdapter adapter = new SearchListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
+
+
+        databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
+        databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
+            @Override
+            public void onChanged(List<Recipe> recipes) {
+                adapter.setRecipes(recipes);
+            }
+        });
     }
 
 }
