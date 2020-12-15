@@ -11,21 +11,24 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.whatsfordinner.db.dao.RecipeDao;
+import com.example.whatsfordinner.db.dao.ShoppingListDao;
 import com.example.whatsfordinner.db.dao.UserDao;
 import com.example.whatsfordinner.db.entity.Direction;
 import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.MeasurementQty;
 import com.example.whatsfordinner.db.entity.MeasurementUnits;
+import com.example.whatsfordinner.db.entity.ShoppingList;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-@Database(version = 15, entities = {User.class, Recipe.class, Direction.class,Ingredient.class, MeasurementQty.class, MeasurementUnits.class})
+@Database(version = 16, entities = {User.class, Recipe.class, Direction.class,Ingredient.class, MeasurementQty.class, MeasurementUnits.class, ShoppingList.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
 
     abstract public UserDao getUserDao();
     abstract public RecipeDao getRecipeDao();
+    abstract public ShoppingListDao getShoppingListDao();
 
 
 
@@ -67,7 +70,8 @@ public abstract class AppDatabase extends RoomDatabase {
            *//* new PopulateDbAsync(instance).execute();*//*
         }
 
-       *//* private static class PopulateDbAsync extends AsyncTask<Void, Void,Void>{
+       */
+    /* private static class PopulateDbAsync extends AsyncTask<Void, Void,Void>{
             private final RecipeDao Dao;
 
             PopulateDbAsync(AppDatabase db){

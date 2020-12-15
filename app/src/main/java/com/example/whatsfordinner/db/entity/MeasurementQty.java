@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
         @ForeignKey(entity = Ingredient.class, parentColumns = "ingredient_id", childColumns = "ingredient_id"),
         @ForeignKey(entity = MeasurementUnits.class, parentColumns = "measurement_unit_id", childColumns = "measurement_unit_id")})
 public class MeasurementQty {
-    //TODO::change the name
 
     @NotNull
     @PrimaryKey

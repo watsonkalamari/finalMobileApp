@@ -1,9 +1,6 @@
 package com.example.whatsfordinner.Adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
-import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +30,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
 
     @Override
     public FavoriteListViewHolder onCreateViewHolder(ViewGroup parent, int viewType ){
-        View itemView = inflater.from(parent.getContext()).inflate(R.layout.favorite_recipes_display_single_line,parent,false);
+        View itemView = inflater.from(parent.getContext()).inflate(R.layout.favorite_recipes_display_single_line3,parent,false);
         return new FavoriteListViewHolder(itemView);
     }
 
