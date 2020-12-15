@@ -51,4 +51,5 @@ public class SearchFragment extends Fragment {
         final SearchListAdapter adapter = new SearchListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
     }
+
 }

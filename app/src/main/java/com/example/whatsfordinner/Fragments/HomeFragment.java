@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsfordinner.Adapter.FavoriteListAdapter;
 import com.example.whatsfordinner.Adapter.HomeListAdapter;
+import com.example.whatsfordinner.MainActivity;
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
@@ -24,6 +25,8 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private DatabaseViewModel databaseViewModel;
+    LinearLayoutManager HorizontalLayout;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class HomeFragment extends Fragment {
 
         final HomeListAdapter adapter = new HomeListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
+
+        HorizontalLayout = new LinearLayoutManager(HomeFragment.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(HorizontalLayout);
 
 
         databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
