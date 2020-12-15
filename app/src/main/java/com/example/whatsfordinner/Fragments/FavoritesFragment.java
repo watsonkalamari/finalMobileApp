@@ -1,5 +1,6 @@
 package com.example.whatsfordinner.Fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class FavoritesFragment extends Fragment {
             @Override
             public void onChanged(List<Recipe> recipes) {
                adapter.setRecipes(recipes);
+              /* Drawable icon = getResources().getIdentifier(,"Drawable",this);*/
             }
         });
     }

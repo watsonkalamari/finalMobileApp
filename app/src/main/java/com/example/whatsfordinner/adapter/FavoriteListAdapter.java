@@ -42,7 +42,9 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
             Recipe current = recipes.get(position);
             holder.recipetitle.setText(current.getName());
             //Drawable icon = getResources().getIdentifier(current.getRecipe_image(),"drawable",com.example.whatsfordinner);
-           holder.bitmap.setImageResource(R.drawable.greek_salad);
+          /* holder.bitmap.setImageResource(R.drawable.greek_salad);*/
+            Drawable icon = getResources().getIdentifier(current.getRecipe_image(),"drawable",com.example.whatsfordinner.Fragments.FavoritesFragment);
+            holder.bitmap.setImageDrawable(icon);
         }else{
             holder.recipetitle.setText("NO TITLE");
 
@@ -53,6 +55,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
         recipes = Recipe;
         notifyDataSetChanged();
     }
+
 
     @Override
     public int getItemCount(){

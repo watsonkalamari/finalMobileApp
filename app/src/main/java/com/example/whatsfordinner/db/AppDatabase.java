@@ -19,7 +19,7 @@ import com.example.whatsfordinner.db.entity.MeasurementUnits;
 import com.example.whatsfordinner.db.entity.User;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-@Database(version = 14, entities = {User.class, Recipe.class, Direction.class,Ingredient.class, MeasurementQty.class, MeasurementUnits.class})
+@Database(version = 15, entities = {User.class, Recipe.class, Direction.class,Ingredient.class, MeasurementQty.class, MeasurementUnits.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
@@ -31,7 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
-                instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "appDatabase").createFromAsset("database/appData2.db").build();
+                instance = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "appDatabase").createFromAsset("database/appData2.db").fallbackToDestructiveMigration().build();
         }
         return instance;
     }
