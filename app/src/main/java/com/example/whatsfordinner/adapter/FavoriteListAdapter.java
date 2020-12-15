@@ -24,9 +24,11 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
 
     private final LayoutInflater inflater;
     private List<Recipe> recipes = new ArrayList<>();
+    private Context mContext;
 
     public FavoriteListAdapter(Context context){
-        inflater = LayoutInflater.from(context);
+        mContext=context;
+        inflater = LayoutInflater.from(mContext);
     }
 
 
@@ -41,10 +43,8 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
         if(recipes!=null) {
             Recipe current = recipes.get(position);
             holder.recipetitle.setText(current.getName());
-            //Drawable icon = getResources().getIdentifier(current.getRecipe_image(),"drawable",com.example.whatsfordinner);
-          /* holder.bitmap.setImageResource(R.drawable.greek_salad);*/
-            Drawable icon = getResources().getIdentifier(current.getRecipe_image(),"drawable",com.example.whatsfordinner.Fragments.FavoritesFragment);
-            holder.bitmap.setImageDrawable(icon);
+            int icon = mContext.getResources().getIdentifier(current.getRecipe_image(),"drawable",mContext.getPackageName());
+            holder.bitmap.setImageResource(icon);
         }else{
             holder.recipetitle.setText("NO TITLE");
 

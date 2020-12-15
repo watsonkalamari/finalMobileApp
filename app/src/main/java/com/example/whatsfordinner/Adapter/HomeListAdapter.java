@@ -20,8 +20,10 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.HomeLi
 
     private final LayoutInflater inflater;
     private List<Recipe> recipes = new ArrayList<>();
+    private Context mContext;
 
     public HomeListAdapter(Context context){
+        mContext=context;
         inflater = LayoutInflater.from(context);
     }
 
@@ -37,6 +39,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.HomeLi
         if(recipes!=null) {
             Recipe current = recipes.get(position);
             holder.recipetitle.setText(current.getName());
+            int icon = mContext.getResources().getIdentifier(current.getRecipe_image(),"drawable",mContext.getPackageName());
+            holder.bitmap.setImageResource(icon);
         }else{
             holder.recipetitle.setText("NO TITLE");
 

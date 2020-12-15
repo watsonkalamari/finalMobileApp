@@ -22,6 +22,9 @@ import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 
 import java.util.List;
 
+//TODO::make some changes to the xml file so that the items that are
+// displaying in the recyclerview look pretty and don't have as many gaps
+
 public class FavoritesFragment extends Fragment {
 
     private DatabaseViewModel databaseViewModel;
@@ -47,7 +50,6 @@ public class FavoritesFragment extends Fragment {
             @Override
             public void onChanged(List<Recipe> recipes) {
                adapter.setRecipes(recipes);
-              /* Drawable icon = getResources().getIdentifier(,"Drawable",this);*/
             }
         });
     }
