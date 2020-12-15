@@ -53,4 +53,6 @@ public interface UserDao {
     @Query("SELECT * FROM users ORDER BY uid ASC")
     LiveData<List<User>> getAllUsers();
 
+    @Query("SELECT uid FROM USERS WHERE logged_in=1")
+    LiveData<List<User>> currentUser();
 }

@@ -1,5 +1,6 @@
 package com.example.whatsfordinner.Fragments;
 
+import android.app.Application;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.Adapter.FavoriteListAdapter;
 import com.example.whatsfordinner.db.entity.Recipe;
+import com.example.whatsfordinner.repository.DataRepository;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 
 import java.util.List;
@@ -46,6 +48,7 @@ public class FavoritesFragment extends Fragment {
 
 
         databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
+
         databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
             public void onChanged(List<Recipe> recipes) {
@@ -53,4 +56,9 @@ public class FavoritesFragment extends Fragment {
             }
         });
     }
+   /* public void setUpDatabase(Application application){
+
+        allIngredients = repository.getUsersShoppingListIngredients();
+    }
+*/
 }

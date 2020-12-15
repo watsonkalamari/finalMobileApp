@@ -16,11 +16,13 @@ import java.util.List;
 
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Ingredient;
+import com.example.whatsfordinner.db.entity.ShoppingList;
 
 public class ShoppingListAdapter extends RecyclerView.Adapter {
 
     private List<Ingredient> mItems = new ArrayList<>();
     private final LayoutInflater inflater;
+    private Context mContext;
 
 
     public void updateItems(List<Ingredient> ingredients) {
@@ -29,7 +31,8 @@ public class ShoppingListAdapter extends RecyclerView.Adapter {
     }
 
     public ShoppingListAdapter(Context context){
-        inflater = LayoutInflater.from(context);
+        mContext=context;
+        inflater = LayoutInflater.from(mContext);
     }
 
     @NonNull
@@ -43,9 +46,14 @@ public class ShoppingListAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Ingredient ingredient = mItems.get(position);
         IngredientViewHolder vh = (IngredientViewHolder) holder;
+        //TODO::make a query that gets the ingredients that are in the person's shopping cart
         vh.ingredient.setText(ingredient.getIngredient_name());
     }
 
+    public void setShoppingList(List<Ingredient>shoppingList){
+        mItems=shoppingList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return this.mItems.size();
@@ -61,6 +69,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter {
             super(v);
             containerLyt = v.findViewById(R.id.container);
             ingredient = v.findViewById(R.id.ingredient);
+            yesOrNo = v.findViewById(R.id.ingredient_cbx);
         }
     }
 }

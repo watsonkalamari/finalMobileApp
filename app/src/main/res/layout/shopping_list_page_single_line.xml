@@ -4,21 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_mlarge"
-    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/spacing_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <CheckBox
+            android:id="@+id/ingredient_cbx"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColorLink="#FFFFFF" />
 
         <TextView
             android:id="@+id/ingredient"
@@ -27,7 +26,7 @@
             android:text="Placeholder Text"
             android:textSize="@dimen/medeium_text_size"
             android:layout_marginLeft="@dimen/spacing_medium"
-            android:layout_marginStart="@dimen/spacing_medium" />
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

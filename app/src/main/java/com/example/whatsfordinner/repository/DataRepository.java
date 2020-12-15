@@ -9,6 +9,7 @@ import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.dao.RecipeDao;
 import com.example.whatsfordinner.db.dao.ShoppingListDao;
 import com.example.whatsfordinner.db.dao.UserDao;
+import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.db.entity.ShoppingList;
 import com.example.whatsfordinner.db.entity.User;
@@ -22,15 +23,21 @@ public class DataRepository {
 
     private LiveData<List<ShoppingList>> allShoppingList;
     private LiveData<List<User>> allUsers;
+    private LiveData<List<User>> currentUser;
     private LiveData<List<Recipe>> allRecipes;
+    private LiveData<List<Ingredient>> allIngredients;
 
     public DataRepository(Application application) {
        AppDatabase db = AppDatabase.getInstance(application);
         userDao = db.getUserDao();
         recipeDao = db.getRecipeDao();
+        shoppingListDao=db.getShoppingListDao();
 
         allRecipes = recipeDao.getAllRecipes();
         allUsers = userDao.getAllUsers();
+        currentUser = userDao.currentUser();
+        allIngredients=shoppingListDao.getUsersShoppingListIngredients();
+
     }
 
 
@@ -63,14 +70,18 @@ public class DataRepository {
     public void deleteAllShoppingList(){
         new deleteAllShoppingListAsyncTask(shoppingListDao).execute();
     }
-
     public LiveData<List<ShoppingList>> getAllShoppingList(){return allShoppingList;}
+    public LiveData<List<Ingredient>> getUsersShoppingListIngredients() {
+        return allIngredients;
+    }
+   /* public LiveData<List<User>> currentUser(){
+        return currentUser;
+    }*/
 
     //TODO:::come back and make the additional functions for the users as well.
     public LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
-
 
 
     //Recipes

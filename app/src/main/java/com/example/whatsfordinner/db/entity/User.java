@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.jetbrains.annotations.NotNull;
+
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey(autoGenerate = true)
@@ -14,6 +16,8 @@ public class User {
     private String username;
     @ColumnInfo(name = "password")
     private String password;
+
+    private Integer logged_in;
 
 
     public User() {
@@ -52,4 +56,11 @@ public class User {
         this.password = password;
     }
 
+    public Integer getLogged_in() {
+        return logged_in;
+    }
+
+    public void setLogged_in(Integer logged_in) {
+         this.logged_in = logged_in;
+    }
 }

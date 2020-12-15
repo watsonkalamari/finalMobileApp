@@ -63,26 +63,4 @@ public abstract class AppDatabase extends RoomDatabase {
         instance = null;
     }
 
-    /*private static AppDatabase.Callback appDatabaseCallback = new AppDatabase.Callback(){
-        @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db){
-            super.onOpen(db);
-           *//* new PopulateDbAsync(instance).execute();*//*
-        }
-
-       */
-    /* private static class PopulateDbAsync extends AsyncTask<Void, Void,Void>{
-            private final RecipeDao Dao;
-
-            PopulateDbAsync(AppDatabase db){
-                Dao = db.getRecipeDao();
-            }
-
-            @Override
-            protected Void doInBackground(final Void...params){
-                Dao.deleteAll();
-                //
-            }*//*
-        };
-*/
 }
