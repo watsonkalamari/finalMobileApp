@@ -66,7 +66,6 @@ public class SearchFragment extends Fragment {
                 onSearchButton(adapter);
             }
         });
-
     }
 
     private void onSearchButton(SearchListAdapter adapter) {
@@ -79,11 +78,6 @@ public class SearchFragment extends Fragment {
             }
         });
         databaseViewModel.searchRecipes(keyword);
-
-    }
-
-    //@Override
-    public void onClick(View view){
 
     }
 

@@ -18,11 +18,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <SearchView
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_bar_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search Recipes" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+  <!--      <SearchView
             android:id="@+id/search_bar_editText"
             android:layout_width="@dimen/search_bar_input_width"
             android:queryHint="Search Recipes"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" /> -->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/search_bar_button"
