@@ -61,13 +61,13 @@ public class SearchFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
+        /*databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
         databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
             public void onChanged(List<Recipe> recipes) {
                 adapter.setRecipes(recipes);
             }
-        });
+        });*/
     }
 
 }
