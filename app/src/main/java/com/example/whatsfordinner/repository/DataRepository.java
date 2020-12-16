@@ -26,6 +26,7 @@ public class DataRepository {
     private LiveData<List<User>> currentUser;
     private LiveData<List<Recipe>> allRecipes;
     private LiveData<List<Ingredient>> allIngredients;
+    private LiveData<List<Recipe>> searchResultRecipes;
 
     public DataRepository(Application application) {
        AppDatabase db = AppDatabase.getInstance(application);
@@ -37,6 +38,7 @@ public class DataRepository {
         allUsers = userDao.getAllUsers();
         currentUser = userDao.currentUser();
         allIngredients=shoppingListDao.getUsersShoppingListIngredients();
+        searchResultRecipes=recipeDao.getRecipeInfo();
 
     }
 
@@ -53,10 +55,10 @@ public class DataRepository {
     public void deleteAllRecipes(){
         new deleteAllRecipeAsyncTask(recipeDao).execute();
     }
-
     public LiveData<List<Recipe>> getAllRecipes() {
         return allRecipes;
     }
+    public LiveData<List<Recipe>> getSearchResultRecipes() {return searchResultRecipes;}
 
     public void insert(ShoppingList shoppingList) {
         new insertShoppingListAsyncTask(shoppingListDao).execute(shoppingList);
@@ -74,9 +76,7 @@ public class DataRepository {
     public LiveData<List<Ingredient>> getUsersShoppingListIngredients() {
         return allIngredients;
     }
-   /* public LiveData<List<User>> currentUser(){
-        return currentUser;
-    }*/
+
 
     //TODO:::come back and make the additional functions for the users as well.
     public LiveData<List<User>> getAllUsers() {

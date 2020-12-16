@@ -21,6 +21,7 @@ public class DatabaseViewModel extends AndroidViewModel {
     private LiveData<List<User>> allUsers;
     private LiveData<List<User>> currentUser;
     private LiveData<List<Ingredient>> allIngredients;
+    private LiveData<List<Recipe>> searchResultRecipes;
 
     public DatabaseViewModel(Application application) {
         super(application);
@@ -28,6 +29,8 @@ public class DatabaseViewModel extends AndroidViewModel {
         repository = new DataRepository(application);
         allRecipes = repository.getAllRecipes();
         allIngredients = repository.getUsersShoppingListIngredients();
+        searchResultRecipes=repository.getSearchResultRecipes();
+
         //TODO::add the one for the users
     }
 
@@ -88,5 +91,7 @@ public class DatabaseViewModel extends AndroidViewModel {
     public LiveData<List<Ingredient>> getUsersShoppingListIngredients() {
         return allIngredients;
     }
+
+    public LiveData<List<Recipe>> getSearchResultRecipes(){return searchResultRecipes;}
 }
 
