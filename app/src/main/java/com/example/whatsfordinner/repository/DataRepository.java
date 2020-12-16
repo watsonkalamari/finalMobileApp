@@ -27,6 +27,7 @@ public class DataRepository {
     private LiveData<List<Recipe>> allRecipes;
     private LiveData<List<Ingredient>> allIngredients;
     private LiveData<List<Recipe>> searchResultRecipes;
+    private LiveData<List<Recipe>> recipeInfo;
 
     public DataRepository(Application application) {
        AppDatabase db = AppDatabase.getInstance(application);
@@ -39,6 +40,7 @@ public class DataRepository {
         currentUser = userDao.currentUser();
         allIngredients=shoppingListDao.getUsersShoppingListIngredients();
         searchResultRecipes=recipeDao.getRecipeInfo();
+        recipeInfo=recipeDao.getRecipeInfo();
 
     }
 
@@ -59,6 +61,7 @@ public class DataRepository {
         return allRecipes;
     }
     public LiveData<List<Recipe>> getSearchResultRecipes() {return searchResultRecipes;}
+    public LiveData<List<Recipe>> getRecipeInfo() {return recipeInfo;}
 
     public void insert(ShoppingList shoppingList) {
         new insertShoppingListAsyncTask(shoppingListDao).execute(shoppingList);

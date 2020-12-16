@@ -33,6 +33,8 @@ public interface ShoppingListDao {
     @Query("SELECT DISTINCT ingredient.ingredient_id, ingredient.ingredient_name FROM measured_ingredients join shopping_list on shopping_list.recipe_id = measured_ingredients.recipe_id join ingredient on ingredient.ingredient_id=measured_ingredients.ingredient_id join users on users.uid = shopping_list.uid where users.logged_in=1")
     LiveData<List<Ingredient>> getUsersShoppingListIngredients();
 
+    @Query("SELECT ingredient.ingredient_name FROM measured_ingredients join ingredient on ingredient.ingredient_id=measured_ingredients.ingredient_id join recipes on recipes.recipe_id=measured_ingredients.recipe_id where recipes.recipe_name= ':recipe_name')
+    LiveData<List<Ingredient>> getIngredientsForRecipes(String recipe_name);
 
     //TODO::make a query that gets show all of the
     // ingredients that are attached to a specific user's shopping list
