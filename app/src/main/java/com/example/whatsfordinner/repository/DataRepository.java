@@ -33,6 +33,7 @@ public class DataRepository {
     private String recipe_name;
     private LiveData<List<Direction>> allRecipeDirections;
 
+
     public DataRepository(Application application) {
        AppDatabase db = AppDatabase.getInstance(application);
         userDao = db.getUserDao();
@@ -48,6 +49,10 @@ public class DataRepository {
         allIngredientForRecipe=shoppingListDao.getIngredientsForRecipes(recipe_name);
         allRecipeDirections=recipeDao.getRecipeDirections(recipe_name);
 
+    }
+
+    public List<Recipe> filterRecipes(String keyword) {
+        return recipeDao.filterRecipes(keyword);
     }
 
     public LiveData<List<Direction>> getAllRecipeDirections() {return allRecipeDirections;}

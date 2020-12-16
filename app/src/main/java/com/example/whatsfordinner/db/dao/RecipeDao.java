@@ -31,7 +31,7 @@ public interface RecipeDao {
     @Query("SELECT * FROM recipes ORDER BY recipe_id ASC")
     LiveData<List<Recipe>> getAllRecipes();
 
-    @Query("SELECT * FROM recipes WHERE recipe_name LIKE (:keyword) OR recipe_description LIKE (:keyword)")
+    @Query("SELECT * FROM recipes WHERE recipe_name LIKE '%' + :keyword + '%' OR recipe_description LIKE '%' + :keyword + '%'")
     List<Recipe> filterRecipes(String keyword);
 
     //TODO::make the connection in the repository and view model -- if applicable

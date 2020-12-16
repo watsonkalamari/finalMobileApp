@@ -59,7 +59,8 @@ public class SearchFragment extends Fragment {
         final SearchListAdapter adapter = new SearchListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
 
-        this.button.setOnClickListener(new View.OnClickListener() {
+
+       this.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onSearchButton(adapter);
@@ -70,13 +71,14 @@ public class SearchFragment extends Fragment {
     private void onSearchButton(SearchListAdapter adapter) {
         String keyword = user_search.toString();
         databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
-        databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
+        databaseViewModel.searchRecipes(keyword, adapter);
+    /*    databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
             public void onChanged(List<Recipe> recipes) {
                 adapter.setRecipes(recipes);
             }
-        });
-        databaseViewModel.searchRecipes(keyword, adapter);
+        });*/
+
 
     }
 
