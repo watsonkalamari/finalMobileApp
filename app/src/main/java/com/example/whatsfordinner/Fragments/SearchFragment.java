@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
 
@@ -32,6 +33,9 @@ import java.util.List;
 
 public class SearchFragment extends Fragment {
 
+    private Button button;
+    private SearchView user_search;
+
     /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,9 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.search_page, container, false);
+        user_search = view.findViewById(R.id.search_bar_editText);
+        button = view.findViewById(R.id.search_bar_button);
+        button.setOnClickListener((View.OnClickListener) this);
         return view;
     }
 
@@ -69,5 +76,7 @@ public class SearchFragment extends Fragment {
             }
         });*/
     }
+
+
 
 }
