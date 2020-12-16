@@ -1,10 +1,15 @@
 package com.example.whatsfordinner.viewmodel;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
+import android.os.AsyncTask;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.whatsfordinner.MainActivity;
+import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.db.entity.ShoppingList;
@@ -16,6 +21,7 @@ import java.util.List;
 public class DatabaseViewModel extends AndroidViewModel {
 
     private DataRepository repository;
+    private AppDatabase database;
     private LiveData<List<Recipe>> allRecipes;
     private LiveData<List<ShoppingList>> allShoppingLists;
     private LiveData<List<User>> allUsers;
@@ -29,7 +35,7 @@ public class DatabaseViewModel extends AndroidViewModel {
         repository = new DataRepository(application);
         allRecipes = repository.getAllRecipes();
         allIngredients = repository.getUsersShoppingListIngredients();
-        searchResultRecipes=repository.getSearchResultRecipes();
+        searchResultRecipes = repository.getSearchResultRecipes();
 
         //TODO::add the one for the users
     }
@@ -92,6 +98,28 @@ public class DatabaseViewModel extends AndroidViewModel {
         return allIngredients;
     }
 
-    public LiveData<List<Recipe>> getSearchResultRecipes(){return searchResultRecipes;}
+    public LiveData<List<Recipe>> getSearchResultRecipes() {
+        return searchResultRecipes;
+    }
+
+    public void searchRecipes(String keyword) {
+        new AsyncTask<String, Void, List<Recipe>>() {
+            @Override
+            protected List<Recipe> doInBackground(String... data) {
+                List<Recipe> result = database.getRecipeDao().filterRecipes(data[0]);
+                return result;
+            }
+
+            /*@Override
+            protected void onPostExecute(List<User> result) {
+                if (result == null || result.isEmpty()) {
+                    //Snackbar.make(findViewById(android.R.id.content), "Wrong password. Try again.", Snackbar.LENGTH_LONG).show();
+                } else {
+                    activity.startActivity(new Intent(activity, MainActivity.class));
+                }
+            }*/
+        }.execute(keyword);
+    }
+
 }
 
