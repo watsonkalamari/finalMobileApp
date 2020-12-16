@@ -18,10 +18,12 @@ import java.util.List;
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
 
-public class SearchListAdapter extends RecyclerView.Adapter {
+public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.SearchListViewHolder> {
 
     private List<Recipe> mItems = new ArrayList<>();
     private final LayoutInflater inflater;
+    private List<Recipe> recipes = new ArrayList<>();
+    private Context mContext;
 
     public void updateItems(List<Recipe> recipes) {
         this.mItems = recipes;
@@ -29,37 +31,50 @@ public class SearchListAdapter extends RecyclerView.Adapter {
     }
 
     public SearchListAdapter(Context context){
-        inflater = LayoutInflater.from(context);
+        mContext=context;
+        inflater = LayoutInflater.from(mContext);
     }
 
+
+    public void setRecipes(List<Recipe> Recipe){
+        recipes = Recipe;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SearchListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.shopping_list_page_single_line, parent, false);
-        return new RecipeViewHolder(v);
+        return new SearchListViewHolder(v);
     }
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Recipe recipe = mItems.get(position);
-        RecipeViewHolder vh = (RecipeViewHolder) holder;
-        vh.recipeTitle.setText(recipe.getName());
-        vh.recipeDescription.setText(recipe.getRecipe_description());
+    public void onBindViewHolder(@NonNull SearchListViewHolder holder, int position) {
+        if(recipes!=null) {
+            Recipe current = recipes.get(position);
+            holder.recipeTitle.setText(current.getName());
+            holder.recipeDescription.setText(current.getRecipe_description());
+            int icon = mContext.getResources().getIdentifier(current.getRecipe_image(),"drawable",mContext.getPackageName());
+            holder.recipeImg.setImageResource(icon);
+        }else{
+            holder.recipeTitle.setText("NO TITLE");
+
+        }
     }
+
 
     @Override
     public int getItemCount() {
         return this.mItems.size();
     }
 
-    public class RecipeViewHolder extends RecyclerView.ViewHolder {
+    public class SearchListViewHolder extends RecyclerView.ViewHolder {
 
         public ConstraintLayout containerLyt;
         public ImageView recipeImg;
         public TextView recipeTitle;
         public TextView recipeDescription;
 
-        public RecipeViewHolder(View v) {
+        public SearchListViewHolder(View v) {
             super(v);
             containerLyt = v.findViewById(R.id.container);
             recipeImg = v.findViewById(R.id.search_imageView);

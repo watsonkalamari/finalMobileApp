@@ -25,4 +25,6 @@
     <string name="ingredient_label">Ingredients</string>
     <string name="ingredient_list">Ingredient List</string>
     <string name="recipe_direction_list">Recipe Direction List</string>
+
+    <string name="snackbar_message">Username or Password is incorrect. Try again!</string>
 </resources>
