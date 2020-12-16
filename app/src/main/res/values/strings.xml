@@ -24,7 +24,8 @@
     <string name="recipe_name">Recipe Name</string>
     <string name="ingredient_label">Ingredients</string>
     <string name="ingredient_list">Ingredient List</string>
-    <string name="recipe_direction_list">Recipe Direction List</string>
+    <string name="recipe_direction_label">Directions</string>
+    <string name="bullet_point">•</string>
 
     <string name="snackbar_message">Username or Password is incorrect. Try again!</string>
 </resources>

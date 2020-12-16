@@ -51,24 +51,32 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/display_recipe_ingredient_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="@string/ingredient_label"
             android:textSize="24sp"
             android:textStyle="bold" />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/display_recipe_ingredient_recycleview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/display_recipe_directions_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="@string/ingredient_list" />
+            android:text="@string/recipe_direction_label"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/display_recipe_directions_recyclerview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="@string/recipe_direction_list" />
+
+
     </LinearLayout>
     </ScrollView>
 
