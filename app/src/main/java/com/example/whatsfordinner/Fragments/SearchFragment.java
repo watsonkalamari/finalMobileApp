@@ -20,14 +20,13 @@ import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
 public class SearchFragment extends Fragment {
 
     private MaterialButton button;
-    private TextInputEditText user_search;
+    private SearchView user_search;
     private DatabaseViewModel databaseViewModel;
 
     /*@Override
@@ -69,7 +68,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void onSearchButton(SearchListAdapter adapter) {
-        String keyword = user_search.getText().toString();
+        String keyword = user_search.toString();
         databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
         databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
@@ -77,7 +76,7 @@ public class SearchFragment extends Fragment {
                 adapter.setRecipes(recipes);
             }
         });
-        databaseViewModel.searchRecipes(keyword);
+        databaseViewModel.searchRecipes(keyword, adapter);
 
     }
 
