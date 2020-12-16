@@ -62,10 +62,16 @@ public class SignInActivity extends Fragment {
         User user = mViewModel.getUsers().getValue().get(userIndex);
         usernameInput.setText(user.getUsername());
         passwordInput.setText(user.getPassword());
+
+        this.loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoginButton();
+            }
+        });
     }
 
-    //@Override
-    public void onClick(View view){
+    public void onLoginButton(){
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
         mViewModel.loginUser(activity, username, password);
