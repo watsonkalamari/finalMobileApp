@@ -25,7 +25,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
     private final LayoutInflater inflater;
     private List<Recipe> recipes = new ArrayList<>();
     private Context mContext;
-    private AdapterView.OnItemClickListener onItemClickListener;
+   /* private AdapterView.OnItemClickListener onItemClickListener;*/
 
     public FavoriteListAdapter(Context context){
         mContext=context;
