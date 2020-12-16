@@ -76,7 +76,7 @@ public class SearchFragment extends Fragment {
                 adapter.setRecipes(recipes);
             }
         });
-        databaseViewModel.searchRecipes(keyword);
+        databaseViewModel.searchRecipes(keyword, adapter);
 
     }
 

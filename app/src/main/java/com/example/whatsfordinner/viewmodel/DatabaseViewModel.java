@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.whatsfordinner.Adapter.SearchListAdapter;
 import com.example.whatsfordinner.MainActivity;
 import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.entity.Ingredient;
@@ -102,7 +103,7 @@ public class DatabaseViewModel extends AndroidViewModel {
         return searchResultRecipes;
     }
 
-    public void searchRecipes(String keyword) {
+    public void searchRecipes(String keyword, SearchListAdapter adapter) {
         new AsyncTask<String, Void, List<Recipe>>() {
             @Override
             protected List<Recipe> doInBackground(String... data) {
@@ -110,14 +111,10 @@ public class DatabaseViewModel extends AndroidViewModel {
                 return result;
             }
 
-            /*@Override
-            protected void onPostExecute(List<User> result) {
-                if (result == null || result.isEmpty()) {
-                    //Snackbar.make(findViewById(android.R.id.content), "Wrong password. Try again.", Snackbar.LENGTH_LONG).show();
-                } else {
-                    activity.startActivity(new Intent(activity, MainActivity.class));
-                }
-            }*/
+            @Override
+            protected void onPostExecute(List<Recipe> result) {
+                adapter.notifyDataSetChanged();
+            }
         }.execute(keyword);
     }
 
