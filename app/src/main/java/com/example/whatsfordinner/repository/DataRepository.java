@@ -46,8 +46,9 @@ public class DataRepository {
         allIngredients=shoppingListDao.getUsersShoppingListIngredients();
         searchResultRecipes=recipeDao.getRecipeInfo();
         recipeInfo=recipeDao.getRecipeInfo();
-        allIngredientForRecipe=shoppingListDao.getIngredientsForRecipes(recipe_name);
-        allRecipeDirections=recipeDao.getRecipeDirections(recipe_name);
+//        allIngredientForRecipe=shoppingListDao.getIngredientsForRecipes(recipe_name);
+        recipeDao.getRecipeDirections(recipe_name);
+
 
     }
 
@@ -55,7 +56,9 @@ public class DataRepository {
         return recipeDao.filterRecipes(keyword);
     }
 
-    public LiveData<List<Direction>> getAllRecipeDirections() {return allRecipeDirections;}
+    public LiveData<List<Direction>> getAllRecipeDirections(String recipe_name) {
+        recipeDao.getRecipeDirections(recipe_name);
+        return allRecipeDirections;}
 
     public void insert(Recipe recipe) {
        new insertRecipeAsyncTask(recipeDao).execute(recipe);
@@ -91,7 +94,9 @@ public class DataRepository {
     public LiveData<List<Ingredient>> getUsersShoppingListIngredients() {
         return allIngredients;
     }
-    public LiveData<List<Ingredient>> getAllIngredientForRecipe() { return allIngredientForRecipe;}
+//    public LiveData<List<Ingredient>> getAllIngredientForRecipe(String recipe_name) {
+//        allIngredientForRecipe=shoppingListDao.getIngredientsForRecipes(recipe_name);
+//        return allIngredientForRecipe;}
     public void setRecipe_name(String recipe_name) {this.recipe_name=recipe_name; }
 
 
