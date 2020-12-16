@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp">
+
         <ImageView
             android:id="@+id/favorite_img_imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search_placeholder" />
+            android:layout_height="150dp"
+            android:src="@drawable/ic_search_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/favorite_title_tv"
             style="@style/SearchResult_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@android:color/white" />
+            android:background="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@+id/favorite_img_imageView"
+            app:layout_constraintStart_toStartOf="@+id/favorite_img_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/favorite_img_imageView" />
         <!--android:layout_marginBottom="0dp"-->
         <!--  <TextView
               android:id="@+id/search_result_description"
@@ -29,5 +36,5 @@
               android:layout_marginLeft="30dp"
               app:layout_constraintStart_toStartOf="@+id/search_result_name"
               app:layout_constraintTop_toBottomOf="@+id/search_result_name" />-->
-    </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
