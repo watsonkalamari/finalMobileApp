@@ -1,16 +1,20 @@
 package com.example.whatsfordinner.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsfordinner.Fragments.FavoritesFragment;
 import com.example.whatsfordinner.R;
+import com.example.whatsfordinner.RecipeActivity;
 import com.example.whatsfordinner.db.entity.Recipe;
 
 import java.util.ArrayList;
@@ -21,6 +25,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
     private final LayoutInflater inflater;
     private List<Recipe> recipes = new ArrayList<>();
     private Context mContext;
+    private AdapterView.OnItemClickListener onItemClickListener;
 
     public FavoriteListAdapter(Context context){
         mContext=context;
@@ -41,6 +46,13 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
             holder.recipetitle.setText(current.getName());
             int icon = mContext.getResources().getIdentifier(current.getRecipe_image(),"drawable",mContext.getPackageName());
             holder.bitmap.setImageResource(icon);
+            holder.bitmap.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), RecipeActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }else{
             holder.recipetitle.setText("NO TITLE");
 
