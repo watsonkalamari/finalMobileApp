@@ -44,7 +44,7 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Se
     @NonNull
     @Override
     public SearchListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.shopping_list_page_single_line, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_page_single_line, parent, false);
         return new SearchListViewHolder(v);
     }
     @Override
@@ -64,7 +64,9 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Se
 
     @Override
     public int getItemCount() {
-        return this.mItems.size();
+        if(recipes!=null)
+            return recipes.size();
+        else return 0;
     }
 
     public class SearchListViewHolder extends RecyclerView.ViewHolder {
