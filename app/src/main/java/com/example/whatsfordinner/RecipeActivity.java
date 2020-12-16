@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whatsfordinner.adapter.RecipeDirectionsAdapter;
+import com.example.whatsfordinner.Adapter.RecipeDirectionsAdapter;
 import com.example.whatsfordinner.adapter.RecipeIngredientsAdapter;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
@@ -43,8 +43,8 @@ public class RecipeActivity extends AppCompatActivity {
         RecyclerView.LayoutManager directionLayoutManager = new LinearLayoutManager(this);
         directionsList.setLayoutManager(directionLayoutManager);
 
-        final RecipeDirectionsAdapter directionsAdapter = new RecipeDirectionsAdapter(this);
-        directionsList.setAdapter(directionsAdapter);
+        final RecipeDirectionsAdapter recipeDirectionsAdapter = new RecipeDirectionsAdapter(this);
+        directionsList.setAdapter(recipeDirectionsAdapter);
 
         //TODO::connect this activity to the database so that the recipe's name, image,
         // ingredients, and directions are gonna show up on the screen

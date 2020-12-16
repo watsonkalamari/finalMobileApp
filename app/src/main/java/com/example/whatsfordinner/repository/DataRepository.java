@@ -9,6 +9,7 @@ import com.example.whatsfordinner.db.AppDatabase;
 import com.example.whatsfordinner.db.dao.RecipeDao;
 import com.example.whatsfordinner.db.dao.ShoppingListDao;
 import com.example.whatsfordinner.db.dao.UserDao;
+import com.example.whatsfordinner.db.entity.Direction;
 import com.example.whatsfordinner.db.entity.Ingredient;
 import com.example.whatsfordinner.db.entity.Recipe;
 import com.example.whatsfordinner.db.entity.ShoppingList;
@@ -28,6 +29,9 @@ public class DataRepository {
     private LiveData<List<Ingredient>> allIngredients;
     private LiveData<List<Recipe>> searchResultRecipes;
     private LiveData<List<Recipe>> recipeInfo;
+    private LiveData<List<Ingredient>> allIngredientForRecipe;
+    private String recipe_name;
+    private LiveData<List<Direction>> allRecipeDirections;
 
     public DataRepository(Application application) {
        AppDatabase db = AppDatabase.getInstance(application);
@@ -41,9 +45,12 @@ public class DataRepository {
         allIngredients=shoppingListDao.getUsersShoppingListIngredients();
         searchResultRecipes=recipeDao.getRecipeInfo();
         recipeInfo=recipeDao.getRecipeInfo();
+        allIngredientForRecipe=shoppingListDao.getIngredientsForRecipes(recipe_name);
+        allRecipeDirections=recipeDao.getRecipeDirections(recipe_name);
 
     }
 
+    public LiveData<List<Direction>> getAllRecipeDirections() {return allRecipeDirections;}
 
     public void insert(Recipe recipe) {
        new insertRecipeAsyncTask(recipeDao).execute(recipe);
@@ -79,6 +86,8 @@ public class DataRepository {
     public LiveData<List<Ingredient>> getUsersShoppingListIngredients() {
         return allIngredients;
     }
+    public LiveData<List<Ingredient>> getAllIngredientForRecipe() { return allIngredientForRecipe;}
+    public void setRecipe_name(String recipe_name) {this.recipe_name=recipe_name; }
 
 
     //TODO:::come back and make the additional functions for the users as well.
@@ -198,33 +207,4 @@ public class DataRepository {
 
     //Users
 
-    /*public void insert(User user){
-        new insertAsyncTask(userDao).execute(user);
-    }*/
-
-   /* private static class insertAsyncTask extends AsyncTask<User,Void,Void>{
-        private UserDao asynchTaskDao;
-
-        insertAsyncTask(UserDao dao){asynchTaskDao=dao;}
-
-
-        @Override
-        protected Void doInBackground(User... users) {
-            asynchTaskDao.insertUser(users[0]);
-            return null;
-        }
-    }*/
-    /*private static class insertAsyncTask extends AsyncTask<Recipe,Void, Void> {
-        private RecipeDao asynchTaskDao;
-
-        insertAsyncTask(RecipeDao dao) {
-            asynchTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(Recipe... recipes) {
-            asynchTaskDao.insert(recipes[0]);
-            return null;
-        }
-    }*/
 }

@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.whatsfordinner.db.entity.Direction;
 import com.example.whatsfordinner.db.entity.Recipe;
 /*import com.example.whatsfordinner.query.RecipeWithMeasuredIngredients;
 import com.example.whatsfordinner.query.RecipesWithIngredients;*/
@@ -40,6 +41,9 @@ public interface RecipeDao {
     //TODO::add the other queries that are going to be needed for the display recipe fragment
     @Query("SELECT * FROM recipes WHERE recipe_id IN (:recipe_id)")
     List<Recipe> loadAllByIds(int[] recipe_id);
+
+    @Query("select directions.Step_number,directions.direction_description from directions join recipes on recipes.recipe_id=directions.recipe_id where recipes.recipe_name=:recipe_name")
+    LiveData<List<Direction>> getRecipeDirections(String recipe_name);
 
     @Query("DELETE FROM recipes")
     void deleteAll();

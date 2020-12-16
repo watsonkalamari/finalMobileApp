@@ -17,14 +17,15 @@ public class SecondActivityViewModel extends AndroidViewModel {
     private LiveData<List<Recipe>> allRecipes;
     private LiveData<List<Direction>> allDirections;
     private LiveData<List<Ingredient>> allIngredients;
+    private String recipe_name;
 
 
     public SecondActivityViewModel(Application application){
         super(application);
         repository = new DataRepository(application);
         allRecipes = repository.getRecipeInfo();
-        allIngredients=;
-        allDirections =
+        allIngredients=repository.getAllIngredientForRecipe(repository.setRecipe_name(repository.getRecipeInfo().getValue().get(0).getName()););
+        allDirections =repository.getAllRecipeDirections();
 
     }
 }
