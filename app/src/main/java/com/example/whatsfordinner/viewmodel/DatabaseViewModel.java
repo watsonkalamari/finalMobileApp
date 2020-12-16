@@ -22,13 +22,13 @@ import java.util.List;
 public class DatabaseViewModel extends AndroidViewModel {
 
     private DataRepository repository;
-    private AppDatabase database;
     private LiveData<List<Recipe>> allRecipes;
     private LiveData<List<ShoppingList>> allShoppingLists;
     private LiveData<List<User>> allUsers;
     private LiveData<List<User>> currentUser;
     private LiveData<List<Ingredient>> allIngredients;
     private LiveData<List<Recipe>> searchResultRecipes;
+
 
     public DatabaseViewModel(Application application) {
         super(application);
@@ -107,12 +107,13 @@ public class DatabaseViewModel extends AndroidViewModel {
         new AsyncTask<String, Void, List<Recipe>>() {
             @Override
             protected List<Recipe> doInBackground(String... data) {
-                List<Recipe> result = database.getRecipeDao().filterRecipes(data[0]);
+                List<Recipe> result = repository.filterRecipes(data[0]);
                 return result;
             }
 
             @Override
             protected void onPostExecute(List<Recipe> result) {
+                adapter.setRecipes(result);
                 adapter.notifyDataSetChanged();
             }
         }.execute(keyword);
