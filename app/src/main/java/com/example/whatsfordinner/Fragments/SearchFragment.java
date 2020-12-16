@@ -82,6 +82,11 @@ public class SearchFragment extends Fragment {
 
     }
 
+    //@Override
+    public void onClick(View view){
+
+    }
+
 
 
 }
