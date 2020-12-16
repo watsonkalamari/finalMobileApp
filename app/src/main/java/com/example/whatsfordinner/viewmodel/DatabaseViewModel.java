@@ -113,7 +113,7 @@ public class DatabaseViewModel extends AndroidViewModel {
 
             @Override
             protected void onPostExecute(List<Recipe> result) {
-                adapter.setRecipes(result);
+                //adapter.setRecipes(result);
                 adapter.notifyDataSetChanged();
             }
         }.execute(keyword);

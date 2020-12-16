@@ -1,6 +1,7 @@
 package com.example.whatsfordinner.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.whatsfordinner.R;
+import com.example.whatsfordinner.RecipeActivity;
 import com.example.whatsfordinner.db.entity.Recipe;
 
 public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.SearchListViewHolder> {
@@ -55,6 +57,13 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Se
             holder.recipeDescription.setText(current.getRecipe_description());
             int icon = mContext.getResources().getIdentifier(current.getRecipe_image(),"drawable",mContext.getPackageName());
             holder.recipeImg.setImageResource(icon);
+            holder.recipeImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), RecipeActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }else{
             holder.recipeTitle.setText("NO TITLE");
 

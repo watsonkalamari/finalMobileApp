@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsfordinner.Adapter.SearchListAdapter;
 import com.example.whatsfordinner.R;
 import com.example.whatsfordinner.db.entity.Recipe;
+import com.example.whatsfordinner.repository.DataRepository;
 import com.example.whatsfordinner.viewmodel.DatabaseViewModel;
 import com.google.android.material.button.MaterialButton;
 
@@ -28,6 +29,7 @@ public class SearchFragment extends Fragment {
     private MaterialButton button;
     private SearchView user_search;
     private DatabaseViewModel databaseViewModel;
+    private DataRepository repository;
 
     /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,12 +74,12 @@ public class SearchFragment extends Fragment {
         String keyword = user_search.toString();
         databaseViewModel = ViewModelProviders.of(this).get(DatabaseViewModel.class);
         databaseViewModel.searchRecipes(keyword, adapter);
-    /*    databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
+        databaseViewModel.getAllRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
             @Override
             public void onChanged(List<Recipe> recipes) {
                 adapter.setRecipes(recipes);
             }
-        });*/
+        });
 
 
     }
